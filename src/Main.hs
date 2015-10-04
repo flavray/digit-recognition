@@ -32,9 +32,6 @@ instance KD.Point Image where
 parseRecords :: BS.ByteString -> Either String (V.Vector Image)
 parseRecords = decode HasHeader
 
-imageAsList :: Image -> [Double]
-imageAsList (Image _ pixels) = map fromIntegral $ V.toList pixels
-
 buildTree :: (V.Vector Image) -> KD.KdTree Image
 buildTree images = KD.fromList $ V.toList images
 
